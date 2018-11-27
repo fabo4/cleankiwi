@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let splashViewController = SplashViewController.make()
+        let splashViewController = try! InstanceProvider.shared.instance(of: LoginViewController.self)
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()

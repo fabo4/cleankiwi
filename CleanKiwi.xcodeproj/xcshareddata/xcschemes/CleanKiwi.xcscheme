@@ -38,16 +38,6 @@
                ReferencedContainer = "container:CleanKiwi.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE2C1F5021AC34540000161A"
-               BuildableName = "CleanKiwiCoreTests.xctest"
-               BlueprintName = "CleanKiwiCoreTests"
-               ReferencedContainer = "container:CleanKiwi.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
