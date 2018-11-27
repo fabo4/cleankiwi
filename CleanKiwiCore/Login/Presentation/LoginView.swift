@@ -9,12 +9,13 @@
 import Foundation
 
 public struct LoginLocalization {
+
     public let usernamePlaceholder: String
     public let passwordPlaceholder: String
     public let loginButtonLabel: String
 }
 
-public protocol LoginView: class {
+public protocol LoginView: AnyObject {
 
     func localize(localization: LoginLocalization)
     func startLoading()

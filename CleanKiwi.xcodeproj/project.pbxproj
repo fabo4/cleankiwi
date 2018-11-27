@@ -24,6 +24,8 @@
 		BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */; };
 		BE75465A21AD709E005FF2D7 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */; };
 		BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9221AD80BF00FFCF0B /* LoginController.swift */; };
+		BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */; };
+		BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */; };
 		D5FAD8B600652A5B6D734101 /* Pods_CleanKiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB925235BE2E1DDB66BD6387 /* Pods_CleanKiwi.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
 		BE75465C21AD74F3005FF2D7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		BEFADA9221AD80BF00FFCF0B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerFakes.swift; sourceTree = "<group>"; };
+		BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewFakes.swift; sourceTree = "<group>"; };
 		CB925235BE2E1DDB66BD6387 /* Pods_CleanKiwi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanKiwi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27F619D79005E7AB27016F3 /* Pods-CleanKiwiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanKiwiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanKiwiTests/Pods-CleanKiwiTests.release.xcconfig"; sourceTree = "<group>"; };
 		F28909363152CB6D9033B86D /* Pods_CleanKiwiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanKiwiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,6 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */,
+				BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */,
+				BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -565,7 +571,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE75465A21AD709E005FF2D7 /* LoginPresenterTests.swift in Sources */,
+				BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */,
 				BE2C1F5921AC34540000161A /* CleanKiwiCoreTests.swift in Sources */,
+				BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

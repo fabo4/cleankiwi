@@ -11,12 +11,15 @@ import XCTest
 
 class LoginPresenterTests: XCTestCase {
 
+    private var loginController: LoginController = LoginControllerDummy()
+
     private var sut: LoginPresenterImpl!
+
     private var viewSpy: LoginViewSpy!
 
     override func setUp() {
         super.setUp()
-        sut = LoginPresenterImpl()
+        sut = LoginPresenterImpl(loginController: loginController)
         viewSpy = LoginViewSpy()
         sut.view = viewSpy
     }
@@ -30,28 +33,117 @@ class LoginPresenterTests: XCTestCase {
         XCTAssertEqual(viewSpy.shownError, "")
         XCTAssertTrue(viewSpy.stopLoadingCalled)
     }
+
+    func test_whenViewDidLoad_thenLoginControllerIsSubscribed() {
+        let loginController = LoginControllerSpy()
+        self.loginController = loginController
+        setUp()
+
+        sut.viewDidLoad()
+
+        XCTAssertNotNil(loginController.update)
+        XCTAssertNotNil(loginController.failure)
+    }
+
+    func test_givenViewDidLoadLoginControllerIsLoading_whenLoginControllerUpdates_thenViewStartsLoading() {
+        let loginController = LoginControllerStub()
+        self.loginController = loginController
+        setUp()
+        loginController.loading = true
+        sut.viewDidLoad()
+
+        loginController.update?()
+
+        XCTAssertTrue(viewSpy.startLoadingCalled)
+    }
+
+    func test_givenViewDidLoadLoginControllerIsNotLoading_whenLoginControllerUpdates_thenViewStopsLoading() {
+        let loginController = LoginControllerStub()
+        self.loginController = loginController
+        setUp()
+        loginController.loading = false
+        sut.viewDidLoad()
+        viewSpy.stopLoadingCalled = false
+
+        loginController.update?()
+
+        XCTAssertTrue(viewSpy.stopLoadingCalled)
+    }
+
+    func test_givenViewDidLoadLoginControllerIsLoading_whenLoginControllerFails_thenViewStartsLoading() {
+        let loginController = LoginControllerStub()
+        self.loginController = loginController
+        setUp()
+        loginController.loading = true
+        sut.viewDidLoad()
+
+        loginController.failure?(TestError.error)
+
+        XCTAssertTrue(viewSpy.startLoadingCalled)
+    }
+
+    func test_givenViewDidLoadLoginControllerIsNotLoading_whenLoginControllerFails_thenViewStopsLoading() {
+        let loginController = LoginControllerStub()
+        self.loginController = loginController
+        setUp()
+        loginController.loading = false
+        sut.viewDidLoad()
+        viewSpy.stopLoadingCalled = false
+
+        loginController.failure?(TestError.error)
+
+        XCTAssertTrue(viewSpy.stopLoadingCalled)
+    }
+
+    func test_givenLoginCredentials_whenLogin_thenControllerLogsIn() {
+        let loginController = LoginControllerSpy()
+        self.loginController = loginController
+        setUp()
+
+        sut.login(username: "username", password: "password")
+
+        XCTAssertEqual(loginController.username, "username")
+        XCTAssertEqual(loginController.password, "password")
+    }
+
+    func test_givenDirtyLoginCredentials_whenLogin_thenControllerLogsInWithLowercaseTrimmedUsername() {
+        let loginController = LoginControllerSpy()
+        self.loginController = loginController
+        setUp()
+
+        sut.login(username: " USERname  ", password: "password")
+
+        XCTAssertEqual(loginController.username, "username")
+        XCTAssertEqual(loginController.password, "password")
+    }
+
+    func test_givenViewDidLoad_whenLoginControllerFailsWithInvalidCredentials_thenViewShowsErrorInvalidCredentials() {
+        let loginController = LoginControllerStub()
+        self.loginController = loginController
+        setUp()
+        sut.viewDidLoad()
+        viewSpy.stopLoadingCalled = false
+
+        loginController.failure?(LoginControllerError.invalidCredentials)
+
+        XCTAssertTrue(viewSpy.stopLoadingCalled)
+        XCTAssertEqual(viewSpy.shownError, "Invalid credentials")
+    }
+
+    func test_givenViewDidLoad_whenLoginControllerFails_thenViewShowsUnknownError() {
+        let loginController = LoginControllerStub()
+        self.loginController = loginController
+        setUp()
+        sut.viewDidLoad()
+        viewSpy.stopLoadingCalled = false
+
+        loginController.failure?(TestError.error)
+
+        XCTAssertTrue(viewSpy.stopLoadingCalled)
+        XCTAssertEqual(viewSpy.shownError, "Unknown error")
+    }
 }
 
-private class LoginViewSpy: LoginView {
-
-    var localization: LoginLocalization?
-    var startLoadingCalled = false
-    var stopLoadingCalled = false
-    var shownError: String?
-
-    func localize(localization: LoginLocalization) {
-        self.localization = localization
-    }
-
-    func startLoading() {
-        self.startLoadingCalled = true
-    }
-
-    func stopLoading() {
-        self.stopLoadingCalled = true
-    }
-
-    func show(error: String) {
-        self.shownError = error
-    }
+private enum TestError: Error {
+    case error
 }
