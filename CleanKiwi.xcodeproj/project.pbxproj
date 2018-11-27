@@ -23,7 +23,7 @@
 		BE75465421AD6A8E005FF2D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465321AD6A8E005FF2D7 /* LoginView.swift */; };
 		BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */; };
 		BE75465A21AD709E005FF2D7 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */; };
-		BE75465D21AD74F3005FF2D7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE75465C21AD74F3005FF2D7 /* AppKit.framework */; };
+		BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9221AD80BF00FFCF0B /* LoginController.swift */; };
 		D5FAD8B600652A5B6D734101 /* Pods_CleanKiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB925235BE2E1DDB66BD6387 /* Pods_CleanKiwi.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +96,7 @@
 		BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
 		BE75465C21AD74F3005FF2D7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		BEFADA9221AD80BF00FFCF0B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		CB925235BE2E1DDB66BD6387 /* Pods_CleanKiwi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanKiwi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27F619D79005E7AB27016F3 /* Pods-CleanKiwiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanKiwiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanKiwiTests/Pods-CleanKiwiTests.release.xcconfig"; sourceTree = "<group>"; };
 		F28909363152CB6D9033B86D /* Pods_CleanKiwiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanKiwiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE75465D21AD74F3005FF2D7 /* AppKit.framework in Frameworks */,
 				BE2C1F5221AC34540000161A /* CleanKiwiCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +246,7 @@
 		BE75464C21AD624C005FF2D7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				BEFADA9221AD80BF00FFCF0B /* LoginController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -285,6 +286,7 @@
 		BE75465721AD7085005FF2D7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BEFADA9021AD808C00FFCF0B /* Application */,
 				BE75465821AD708B005FF2D7 /* Presentation */,
 			);
 			path = Login;
@@ -296,6 +298,13 @@
 				BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BEFADA9021AD808C00FFCF0B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		CDED8B4556B96B72F187A47B /* Pods */ = {
@@ -546,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */,
+				BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */,
 				BE75465421AD6A8E005FF2D7 /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -836,7 +846,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -869,7 +879,7 @@
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -896,7 +906,7 @@
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -921,7 +931,7 @@
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Release;
 		};

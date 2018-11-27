@@ -14,7 +14,7 @@ public struct LoginLocalization {
     public let loginButtonLabel: String
 }
 
-public protocol LoginView {
+public protocol LoginView: class {
 
     func localize(localization: LoginLocalization)
     func startLoading()

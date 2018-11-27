@@ -15,10 +15,15 @@ public protocol LoginPresenter {
 
 public class LoginPresenterImpl: LoginPresenter {
 
+    public weak var view: LoginView?
+
     public init() { }
 
     public func viewDidLoad() {
-
+        let localization = LoginLocalization(usernamePlaceholder: "Email", passwordPlaceholder: "Password", loginButtonLabel: "Login")
+        view?.localize(localization: localization)
+        view?.show(error: "")
+        view?.stopLoading()
     }
 
     public func login(username: String, password: String) {

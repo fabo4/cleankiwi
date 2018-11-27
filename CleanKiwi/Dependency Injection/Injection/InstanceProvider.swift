@@ -23,10 +23,10 @@ class InstanceProvider {
 
         switch type {
         case is LoginViewController.Type:
-            let loginPresenter = try instance(of: LoginPresenter.self)
-            return LoginViewController.make(loginPresenter: loginPresenter) as! T
-        case is LoginPresenter.Protocol:
-            return LoginPresenterImpl() as! T
+            let loginPresenter = LoginPresenterImpl()
+            let loginViewController = LoginViewController.make(loginPresenter: loginPresenter)
+            loginPresenter.view = loginViewController
+            return loginViewController as! T
         default:
             throw Error.unableToResolve
         }

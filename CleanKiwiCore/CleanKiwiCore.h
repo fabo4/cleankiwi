@@ -6,11 +6,13 @@
 //  Copyright © 2018 Kiwi.com. All rights reserved.
 //
 
+@import Foundation;
+
 //! Project version number for CleanKiwiCore.
-//FOUNDATION_EXPORT double CleanKiwiCoreVersionNumber;
+FOUNDATION_EXPORT double CleanKiwiCoreVersionNumber;
 
 //! Project version string for CleanKiwiCore.
-//FOUNDATION_EXPORT const unsigned char CleanKiwiCoreVersionString[];
+FOUNDATION_EXPORT const unsigned char CleanKiwiCoreVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <CleanKiwiCore/PublicHeader.h>
 
