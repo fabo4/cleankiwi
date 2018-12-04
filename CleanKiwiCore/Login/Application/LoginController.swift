@@ -22,21 +22,46 @@ public protocol LoginController {
 
 public class LoginControllerImpl: LoginController {
 
-    public init() { }
+    let invoker: LoginInvoker
+    let loginResource: LoginResource
+
+    var update: (() -> Void)?
+    var failure: ((Error) -> Void)?
+
+    var loading = false
+
+    public init(invoker: LoginInvoker, loginResource: LoginResource) {
+        self.invoker = invoker
+        self.loginResource = loginResource
+    }
     
     public func isLoading() -> Bool {
-        return false
+        return loading
     }
 
     public func subscribeUpdate(_ update: @escaping () -> Void) {
-
+        self.update = update
     }
 
     public func subscribeFailure(_ failure: @escaping (Error) -> Void) {
-
+        self.failure = failure
     }
 
     public func login(username: String, password: String) {
-
+        loading = true
+        update?()
+        invoker.invoke(action: {
+            return try self.loginResource.login(request: LoginRequest(username: username, password: password))
+        }, completion: { [weak self] result in
+            self?.loading = false
+            switch result {
+            case .failure(let error):
+                self?.failure?(error)
+            case .success:
+                self?.update?()
+            }
+        })
     }
 }
+
+

@@ -143,7 +143,3 @@ class LoginPresenterTests: XCTestCase {
         XCTAssertEqual(viewSpy.shownError, "Unknown error")
     }
 }
-
-private enum TestError: Error {
-    case error
-}

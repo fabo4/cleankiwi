@@ -19,6 +19,12 @@
 		BE2C1F5B21AC34540000161A /* CleanKiwiCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BE2C1F4B21AC34540000161A /* CleanKiwiCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE2C1F5E21AC34540000161A /* CleanKiwiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2C1F4921AC34540000161A /* CleanKiwiCore.framework */; };
 		BE2C1F5F21AC34540000161A /* CleanKiwiCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE2C1F4921AC34540000161A /* CleanKiwiCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE676E1A21B69583004B9558 /* LoginControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E1921B69583004B9558 /* LoginControllerTests.swift */; };
+		BE676E1C21B69621004B9558 /* LoginResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E1B21B69621004B9558 /* LoginResource.swift */; };
+		BE676E2021B696DE004B9558 /* Invoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E1F21B696DE004B9558 /* Invoker.swift */; };
+		BE676E2221B698F7004B9558 /* LoginResourceFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2121B698F7004B9558 /* LoginResourceFakes.swift */; };
+		BE676E2521B69982004B9558 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2421B69982004B9558 /* TestError.swift */; };
+		BE676E2721B699A5004B9558 /* InvokerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2621B699A5004B9558 /* InvokerFakes.swift */; };
 		BE75465121AD6301005FF2D7 /* InstanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465021AD6301005FF2D7 /* InstanceProvider.swift */; };
 		BE75465421AD6A8E005FF2D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465321AD6A8E005FF2D7 /* LoginView.swift */; };
 		BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */; };
@@ -93,6 +99,12 @@
 		BE2C1F5121AC34540000161A /* CleanKiwiCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanKiwiCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2C1F5821AC34540000161A /* CleanKiwiCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanKiwiCoreTests.swift; sourceTree = "<group>"; };
 		BE2C1F5A21AC34540000161A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE676E1921B69583004B9558 /* LoginControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerTests.swift; sourceTree = "<group>"; };
+		BE676E1B21B69621004B9558 /* LoginResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResource.swift; sourceTree = "<group>"; };
+		BE676E1F21B696DE004B9558 /* Invoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoker.swift; sourceTree = "<group>"; };
+		BE676E2121B698F7004B9558 /* LoginResourceFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResourceFakes.swift; sourceTree = "<group>"; };
+		BE676E2421B69982004B9558 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		BE676E2621B699A5004B9558 /* InvokerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokerFakes.swift; sourceTree = "<group>"; };
 		BE75465021AD6301005FF2D7 /* InstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceProvider.swift; sourceTree = "<group>"; };
 		BE75465321AD6A8E005FF2D7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -203,6 +215,7 @@
 		BE2C1F4A21AC34540000161A /* CleanKiwiCore */ = {
 			isa = PBXGroup;
 			children = (
+				BE676E1D21B696CB004B9558 /* Ivoker */,
 				BE75464B21AD6243005FF2D7 /* Login */,
 				BE2C1F4B21AC34540000161A /* CleanKiwiCore.h */,
 				BE2C1F4C21AC34540000161A /* Info.plist */,
@@ -213,6 +226,7 @@
 		BE2C1F5721AC34540000161A /* CleanKiwiCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				BE676E2321B69979004B9558 /* Common Fakes */,
 				BE75465721AD7085005FF2D7 /* Login */,
 				BE2C1F5821AC34540000161A /* CleanKiwiCoreTests.swift */,
 				BE2C1F5A21AC34540000161A /* Info.plist */,
@@ -237,6 +251,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BE676E1D21B696CB004B9558 /* Ivoker */ = {
+			isa = PBXGroup;
+			children = (
+				BE676E1E21B696D2004B9558 /* Application */,
+			);
+			path = Ivoker;
+			sourceTree = "<group>";
+		};
+		BE676E1E21B696D2004B9558 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BE676E1F21B696DE004B9558 /* Invoker.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BE676E2321B69979004B9558 /* Common Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				BE676E2421B69982004B9558 /* TestError.swift */,
+			);
+			path = "Common Fakes";
+			sourceTree = "<group>";
+		};
 		BE75464B21AD6243005FF2D7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				BEFADA9221AD80BF00FFCF0B /* LoginController.swift */,
+				BE676E1B21B69621004B9558 /* LoginResource.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -309,6 +348,9 @@
 		BEFADA9021AD808C00FFCF0B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				BE676E1921B69583004B9558 /* LoginControllerTests.swift */,
+				BE676E2121B698F7004B9558 /* LoginResourceFakes.swift */,
+				BE676E2621B699A5004B9558 /* InvokerFakes.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -586,6 +628,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */,
+				BE676E1C21B69621004B9558 /* LoginResource.swift in Sources */,
+				BE676E2021B696DE004B9558 /* Invoker.swift in Sources */,
 				BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */,
 				BE75465421AD6A8E005FF2D7 /* LoginView.swift in Sources */,
 			);
@@ -596,8 +640,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE75465A21AD709E005FF2D7 /* LoginPresenterTests.swift in Sources */,
+				BE676E1A21B69583004B9558 /* LoginControllerTests.swift in Sources */,
 				BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */,
 				BE2C1F5921AC34540000161A /* CleanKiwiCoreTests.swift in Sources */,
+				BE676E2221B698F7004B9558 /* LoginResourceFakes.swift in Sources */,
+				BE676E2721B699A5004B9558 /* InvokerFakes.swift in Sources */,
+				BE676E2521B69982004B9558 /* TestError.swift in Sources */,
 				BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
