@@ -95,6 +95,18 @@ class LoginPresenterTests: XCTestCase {
         XCTAssertTrue(viewSpy.stopLoadingCalled)
     }
 
+    func test_givenViewDidLoadAndLoginControllerFailed_whenLogin_thenErrorIsEmpty() {
+        let loginController = LoginControllerStub()
+        self.loginController = loginController
+        setUp()
+        sut.viewDidLoad()
+        loginController.failure?(LoginControllerError.invalidCredentials)
+
+        sut.login(username: "username", password: "password")
+
+        XCTAssertEqual(viewSpy.shownError, "")
+    }
+
     func test_givenLoginCredentials_whenLogin_thenControllerLogsIn() {
         let loginController = LoginControllerSpy()
         self.loginController = loginController

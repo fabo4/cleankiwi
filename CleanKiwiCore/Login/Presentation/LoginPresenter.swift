@@ -59,6 +59,7 @@ public class LoginPresenterImpl: LoginPresenter {
     }
 
     public func login(username: String, password: String) {
+        view?.show(error: "")
         let cleanUsername = username.trimmingCharacters(in: .whitespacesAndNewlines)
         loginController.login(username: cleanUsername.lowercased(), password: password)
     }
