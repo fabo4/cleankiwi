@@ -10,6 +10,7 @@ import Foundation
 
 public enum LoginControllerError: Error {
     case invalidCredentials
+    case unknown
 }
 
 public protocol LoginController {

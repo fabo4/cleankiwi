@@ -55,7 +55,7 @@ class LoginControllerTests: XCTestCase {
         var updateNotified = false
         sut.subscribeUpdate { updateNotified = true }
 
-        invoker.completion?(Result.success(response: LoginResponse()))
+        invoker.completion?(Result.success(response: LoginResponse(token: "", userId: "")))
 
         XCTAssertFalse(sut.isLoading())
         XCTAssertTrue(updateNotified)

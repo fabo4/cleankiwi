@@ -23,6 +23,8 @@ class InstanceProvider {
 
     private init() {
         registerLogin()
+        registerNetworking()
+        registerConfiguration()
     }
 
     func instance<T>(of type: T.Type) throws -> T {
@@ -47,5 +49,14 @@ class InstanceProvider {
         container.autoregister(LoginResource.self, initializer: LoginRemoteResource.init)
 
         container.autoregister(LoginInvoker.self, initializer: BackgroundLoginInvoker.init)
+
+    }
+
+    func registerConfiguration() {
+        container.autoregister(EnvironmentConfig.self, initializer: ProductionEnvironmentConfig.init)
+    }
+
+    func registerNetworking() {
+        container.autoregister(NetworkClient.self, initializer: SynchronousNetworkClient.init)
     }
 }

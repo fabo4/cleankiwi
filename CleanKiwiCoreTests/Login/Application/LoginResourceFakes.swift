@@ -20,7 +20,7 @@ class LoginResourceFailingStub: LoginResource {
 class LoginResourceSuccessStub: LoginResource {
 
     func login(request: LoginRequest) throws -> LoginResponse {
-        return LoginResponse()
+        return LoginResponse(token: "", userId: "")
     }
 }
 
