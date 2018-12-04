@@ -43,5 +43,9 @@ class InstanceProvider {
         }
 
         container.autoregister(LoginController.self, initializer: LoginControllerImpl.init)
+
+        container.autoregister(LoginResource.self, initializer: LoginRemoteResource.init)
+
+        container.autoregister(LoginInvoker.self, initializer: BackgroundLoginInvoker.init)
     }
 }
