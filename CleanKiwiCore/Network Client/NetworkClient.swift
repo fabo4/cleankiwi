@@ -7,6 +7,8 @@
 //
 
 
+public typealias RequestParameters = [String: String]
+
 public struct NetworkClientRequest {
 
     public enum Method {
@@ -18,7 +20,7 @@ public struct NetworkClientRequest {
     public let parameters: [String: String]
     public let urlString: String
 
-    public init(method: Method, parameters: [String: String], urlString: String) {
+    public init(method: Method, parameters: RequestParameters, urlString: String) {
         self.method = method
         self.parameters = parameters
         self.urlString = urlString
