@@ -25,6 +25,8 @@
 		BE676E2221B698F7004B9558 /* LoginResourceFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2121B698F7004B9558 /* LoginResourceFakes.swift */; };
 		BE676E2521B69982004B9558 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2421B69982004B9558 /* TestError.swift */; };
 		BE676E2721B699A5004B9558 /* InvokerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2621B699A5004B9558 /* InvokerFakes.swift */; };
+		BE676E2B21B6AA8F004B9558 /* BackgroundInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2A21B6AA8F004B9558 /* BackgroundInvoker.swift */; };
+		BE676E2E21B6ACE6004B9558 /* LoginRemoteResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE676E2D21B6ACE6004B9558 /* LoginRemoteResource.swift */; };
 		BE75465121AD6301005FF2D7 /* InstanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465021AD6301005FF2D7 /* InstanceProvider.swift */; };
 		BE75465421AD6A8E005FF2D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465321AD6A8E005FF2D7 /* LoginView.swift */; };
 		BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */; };
@@ -105,6 +107,8 @@
 		BE676E2121B698F7004B9558 /* LoginResourceFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResourceFakes.swift; sourceTree = "<group>"; };
 		BE676E2421B69982004B9558 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		BE676E2621B699A5004B9558 /* InvokerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvokerFakes.swift; sourceTree = "<group>"; };
+		BE676E2A21B6AA8F004B9558 /* BackgroundInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundInvoker.swift; sourceTree = "<group>"; };
+		BE676E2D21B6ACE6004B9558 /* LoginRemoteResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteResource.swift; sourceTree = "<group>"; };
 		BE75465021AD6301005FF2D7 /* InstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceProvider.swift; sourceTree = "<group>"; };
 		BE75465321AD6A8E005FF2D7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		BE2C1F2321AC30DF0000161A /* CleanKiwi */ = {
 			isa = PBXGroup;
 			children = (
+				BE676E2821B6AA3C004B9558 /* Invoker */,
 				BE75464E21AD625C005FF2D7 /* Dependency Injection */,
 				BE2C1F6721AC34BD0000161A /* Login */,
 				BE2C1F2421AC30DF0000161A /* AppDelegate.swift */,
@@ -275,9 +280,34 @@
 			path = "Common Fakes";
 			sourceTree = "<group>";
 		};
+		BE676E2821B6AA3C004B9558 /* Invoker */ = {
+			isa = PBXGroup;
+			children = (
+				BE676E2921B6AA44004B9558 /* Platform */,
+			);
+			path = Invoker;
+			sourceTree = "<group>";
+		};
+		BE676E2921B6AA44004B9558 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				BE676E2A21B6AA8F004B9558 /* BackgroundInvoker.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		BE676E2C21B6ACD7004B9558 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BE676E2D21B6ACE6004B9558 /* LoginRemoteResource.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		BE75464B21AD6243005FF2D7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BE676E2C21B6ACD7004B9558 /* Resource */,
 				BE75465221AD6A86005FF2D7 /* Presentation */,
 				BE75464D21AD6252005FF2D7 /* Domain */,
 				BE75464C21AD624C005FF2D7 /* Application */,
@@ -609,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE676E2B21B6AA8F004B9558 /* BackgroundInvoker.swift in Sources */,
 				BE75465121AD6301005FF2D7 /* InstanceProvider.swift in Sources */,
 				BE2C1F2721AC30DF0000161A /* LoginViewController.swift in Sources */,
 				BE2C1F2521AC30DF0000161A /* AppDelegate.swift in Sources */,
@@ -628,6 +659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */,
+				BE676E2E21B6ACE6004B9558 /* LoginRemoteResource.swift in Sources */,
 				BE676E1C21B69621004B9558 /* LoginResource.swift in Sources */,
 				BE676E2021B696DE004B9558 /* Invoker.swift in Sources */,
 				BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */,

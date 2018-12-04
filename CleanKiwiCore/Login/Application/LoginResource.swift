@@ -17,5 +17,6 @@ public struct LoginResponse {
 }
 
 public protocol LoginResource {
+
     func login(request: LoginRequest) throws -> LoginResponse
 }
