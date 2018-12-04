@@ -19,3 +19,24 @@ public protocol LoginController {
     func subscribeFailure(_ failure: @escaping (Error) -> Void)
     func login(username: String, password: String)
 }
+
+public class LoginControllerImpl: LoginController {
+
+    public init() { }
+    
+    public func isLoading() -> Bool {
+        return false
+    }
+
+    public func subscribeUpdate(_ update: @escaping () -> Void) {
+
+    }
+
+    public func subscribeFailure(_ failure: @escaping (Error) -> Void) {
+
+    }
+
+    public func login(username: String, password: String) {
+
+    }
+}

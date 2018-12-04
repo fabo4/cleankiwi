@@ -8,28 +8,40 @@
 
 import Foundation
 import CleanKiwiCore
+import Swinject
+import SwinjectAutoregistration
 
 class InstanceProvider {
 
+    enum Error: Swift.Error {
+        case unableToResolve(type: String)
+    }
+
     static let shared = InstanceProvider()
 
-    private init() { }
+    let container = Container()
 
-    enum Error: Swift.Error {
-        case unableToResolve
+    private init() {
+        registerLogin()
     }
 
     func instance<T>(of type: T.Type) throws -> T {
-
-        switch type {
-        case is LoginViewController.Type:
-            let loginPresenter = LoginPresenterImpl()
-            let loginViewController = LoginViewController.make(loginPresenter: loginPresenter)
-            loginPresenter.view = loginViewController
-            return loginViewController as! T
-        default:
-            throw Error.unableToResolve
+        guard let instance = container.resolve(type) else {
+            throw InstanceProvider.Error.unableToResolve(type: "\(type)")
         }
 
+        return instance
+    }
+
+    private func registerLogin() {
+        container.autoregister(LoginViewController.self, initializer: LoginViewController.make).implements(LoginView.self)
+
+        container.autoregister(LoginPresenter.self, initializer: LoginPresenterImpl.init).initCompleted { resolver, presenter in
+            if let loginPresenter = presenter as? LoginPresenterImpl {
+                loginPresenter.view = resolver.resolve(LoginView.self)
+            }
+        }
+
+        container.autoregister(LoginController.self, initializer: LoginControllerImpl.init)
     }
 }
