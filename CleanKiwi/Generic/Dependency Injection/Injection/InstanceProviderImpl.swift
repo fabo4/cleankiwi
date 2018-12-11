@@ -97,6 +97,8 @@ extension InstanceProviderImpl: ScopeService {
 
         sessionContainer.autoregister(BookingsViewController.self, initializer: BookingsViewController.make)
 
+        sessionContainer.autoregister(BookingsPresenter.self, initializer: BookingsPresenterImpl.init)
+
         self.sessionContainer = sessionContainer
     }
 

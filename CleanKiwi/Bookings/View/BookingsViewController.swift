@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import CleanKiwiCore
 
 class BookingsViewController: UIViewController {
 
-    static func make() -> BookingsViewController {
+    var bookingsPresenter: BookingsPresenter!
+
+    static func make(bookingsPresenter: BookingsPresenter) -> BookingsViewController {
         let storyboard = UIStoryboard(name: "Bookings", bundle: Bundle(for: BookingsViewController.self))
 
         let bookingsViewController = storyboard.instantiateViewController(withIdentifier: "BookingsViewController") as! BookingsViewController
+        bookingsViewController.bookingsPresenter = bookingsPresenter
         return bookingsViewController
+    }
+
+    @IBAction func logout(_ sender: Any) {
+        bookingsPresenter.logout()
     }
 }

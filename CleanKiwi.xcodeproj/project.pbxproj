@@ -54,6 +54,8 @@
 		BE9FC86D21BFE4C0008B0383 /* RootWireframeFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC86C21BFE4C0008B0383 /* RootWireframeFakes.swift */; };
 		BE9FC87121BFE7BF008B0383 /* RootWireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC87021BFE7BF008B0383 /* RootWireframeImpl.swift */; };
 		BE9FC87321BFE99B008B0383 /* InstanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC87221BFE99B008B0383 /* InstanceProvider.swift */; };
+		BE9FC87921BFF144008B0383 /* BookingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC87821BFF144008B0383 /* BookingsPresenter.swift */; };
+		BE9FC87D21BFF16D008B0383 /* BookingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC87C21BFF16D008B0383 /* BookingsPresenterTests.swift */; };
 		BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9221AD80BF00FFCF0B /* LoginController.swift */; };
 		BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */; };
 		BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */; };
@@ -160,6 +162,8 @@
 		BE9FC86C21BFE4C0008B0383 /* RootWireframeFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframeFakes.swift; sourceTree = "<group>"; };
 		BE9FC87021BFE7BF008B0383 /* RootWireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframeImpl.swift; sourceTree = "<group>"; };
 		BE9FC87221BFE99B008B0383 /* InstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceProvider.swift; sourceTree = "<group>"; };
+		BE9FC87821BFF144008B0383 /* BookingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsPresenter.swift; sourceTree = "<group>"; };
+		BE9FC87C21BFF16D008B0383 /* BookingsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsPresenterTests.swift; sourceTree = "<group>"; };
 		BEFADA9221AD80BF00FFCF0B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerFakes.swift; sourceTree = "<group>"; };
 		BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewFakes.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 		BE2C1F4A21AC34540000161A /* CleanKiwiCore */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC87521BFF129008B0383 /* Bookings */,
 				BE9FC86121BFE29B008B0383 /* Generic */,
 				BE676E3421B6B435004B9558 /* Configuration */,
 				BE75464B21AD6243005FF2D7 /* Login */,
@@ -283,6 +288,7 @@
 		BE2C1F5721AC34540000161A /* CleanKiwiCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC87A21BFF15C008B0383 /* Bookings */,
 				BE9FC86821BFE472008B0383 /* Navigation */,
 				BE9FC86221BFE2AE008B0383 /* Generic */,
 				BE676E2321B69979004B9558 /* Common Fakes */,
@@ -675,6 +681,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BE9FC87521BFF129008B0383 /* Bookings */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC87621BFF12F008B0383 /* Presentation */,
+			);
+			path = Bookings;
+			sourceTree = "<group>";
+		};
+		BE9FC87621BFF12F008B0383 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC87821BFF144008B0383 /* BookingsPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BE9FC87A21BFF15C008B0383 /* Bookings */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC87B21BFF160008B0383 /* Presentation */,
+			);
+			path = Bookings;
+			sourceTree = "<group>";
+		};
+		BE9FC87B21BFF160008B0383 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC87C21BFF16D008B0383 /* BookingsPresenterTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		BEFADA9021AD808C00FFCF0B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,6 +1011,7 @@
 				BE676E1C21B69621004B9558 /* LoginResource.swift in Sources */,
 				BE676E2021B696DE004B9558 /* Invoker.swift in Sources */,
 				BE676E3021B6B03D004B9558 /* NetworkClient.swift in Sources */,
+				BE9FC87921BFF144008B0383 /* BookingsPresenter.swift in Sources */,
 				BE676E3221B6B3D7004B9558 /* EnvironmentConfig.swift in Sources */,
 				BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */,
 				BE9FC84121BFBA0D008B0383 /* ScopeController.swift in Sources */,
@@ -996,6 +1035,7 @@
 				BE9FC85621BFBEEF008B0383 /* SubscriptionControllerTests.swift in Sources */,
 				BE676E3B21B6B57E004B9558 /* EnvironmentConfigFakes.swift in Sources */,
 				BE9FC84E21BFBC70008B0383 /* ScopeServiceFakes.swift in Sources */,
+				BE9FC87D21BFF16D008B0383 /* BookingsPresenterTests.swift in Sources */,
 				BE676E3721B6B4EB004B9558 /* LoginRemoteResourceTests.swift in Sources */,
 				BE9FC86D21BFE4C0008B0383 /* RootWireframeFakes.swift in Sources */,
 				BE676E3921B6B517004B9558 /* NetworkClientFakes.swift in Sources */,

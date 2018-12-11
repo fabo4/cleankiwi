@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
-        let splashViewController = try! InstanceProviderImpl.shared.instance(of: LoginViewController.self)
-        window.rootViewController = splashViewController
+        let loginViewController = try! InstanceProviderImpl.shared.instance(of: LoginViewController.self)
+        window.rootViewController = loginViewController
 
         return true
     }
