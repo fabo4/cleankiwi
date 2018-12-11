@@ -23,10 +23,32 @@ public class BookingsRemoteResource: BookingsResource {
         let networkRequest = NetworkClientRequest(method: .get, parameters: [:], urlString: url())
 
         let networkResponse = try networkClient.run(request: networkRequest)
-        return []
+        return try handleResponse(networkResponse)
     }
 
     private func url() -> String {
         return environmentConfig.baseBookingsUrlString() + "/users/self/bookings?v=2&" + resourceAuthenticator.authentication()
+    }
+
+    private func handleResponse(_ networkResponse: NetworkClientResponse) throws -> [Booking] {
+
+        switch networkResponse.body {
+        case .array(let array):
+            return try parseResponse(array: array)
+        case .dictionary:
+            throw ResourceError.incorrectResponse
+        }
+    }
+
+    private func parseResponse(array: [[String: Any]]) throws -> [Booking] {
+        return try array.compactMap(parseResponse)
+    }
+
+    private func parseResponse(dictionary: [String: Any]) throws -> Booking? {
+        guard let bid = dictionary["bid"] as? String else {
+            return nil
+        }
+
+        return Booking(bid: bid)
     }
 }

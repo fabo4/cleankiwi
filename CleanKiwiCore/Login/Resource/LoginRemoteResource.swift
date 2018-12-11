@@ -41,7 +41,7 @@ public class LoginRemoteResource: LoginResource {
             try parseErrorResponse(dictionary: dictionary)
             return try parseResponse(dictionary: dictionary)
         case .array:
-            throw LoginResourceError.incorrectResponse
+            throw ResourceError.incorrectResponse
         }
     }
 
@@ -58,11 +58,11 @@ public class LoginRemoteResource: LoginResource {
 
     private func parseResponse(dictionary: [String: Any]) throws -> LoginResponse {
         guard let token = dictionary["token"] as? String else {
-            throw LoginResourceError.incorrectResponse
+            throw ResourceError.incorrectResponse
         }
 
         guard let userId = dictionary["user_id"] as? String else {
-            throw LoginResourceError.incorrectResponse
+            throw ResourceError.incorrectResponse
         }
 
         return LoginResponse(token: token, userId: userId)

@@ -27,9 +27,7 @@ public struct LoginResponse {
     }
 }
 
-public enum LoginResourceError: Error {
-    case incorrectResponse
-}
+
 
 public protocol LoginResource {
 

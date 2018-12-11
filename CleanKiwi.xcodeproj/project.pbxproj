@@ -62,6 +62,9 @@
 		BE9FC88821C007C6008B0383 /* ResourceAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88721C007C6008B0383 /* ResourceAuthenticator.swift */; };
 		BE9FC88C21C00806008B0383 /* BookingsRemoteResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88B21C00806008B0383 /* BookingsRemoteResourceTests.swift */; };
 		BE9FC88E21C0084F008B0383 /* ResourceAuthenticatorFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88D21C0084F008B0383 /* ResourceAuthenticatorFakes.swift */; };
+		BE9FC89121C00DF5008B0383 /* RemoteResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC89021C00DF5008B0383 /* RemoteResource.swift */; };
+		BE9FC89321C013BD008B0383 /* UserResourceAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC89221C013BD008B0383 /* UserResourceAuthenticator.swift */; };
+		BE9FC89621C01438008B0383 /* UserResourceAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC89521C01438008B0383 /* UserResourceAuthenticatorTests.swift */; };
 		BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9221AD80BF00FFCF0B /* LoginController.swift */; };
 		BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */; };
 		BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */; };
@@ -176,6 +179,9 @@
 		BE9FC88721C007C6008B0383 /* ResourceAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAuthenticator.swift; sourceTree = "<group>"; };
 		BE9FC88B21C00806008B0383 /* BookingsRemoteResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsRemoteResourceTests.swift; sourceTree = "<group>"; };
 		BE9FC88D21C0084F008B0383 /* ResourceAuthenticatorFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAuthenticatorFakes.swift; sourceTree = "<group>"; };
+		BE9FC89021C00DF5008B0383 /* RemoteResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteResource.swift; sourceTree = "<group>"; };
+		BE9FC89221C013BD008B0383 /* UserResourceAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResourceAuthenticator.swift; sourceTree = "<group>"; };
+		BE9FC89521C01438008B0383 /* UserResourceAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResourceAuthenticatorTests.swift; sourceTree = "<group>"; };
 		BEFADA9221AD80BF00FFCF0B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerFakes.swift; sourceTree = "<group>"; };
 		BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewFakes.swift; sourceTree = "<group>"; };
@@ -329,12 +335,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BE676E1D21B696CB004B9558 /* Ivoker */ = {
+		BE676E1D21B696CB004B9558 /* Invoker */ = {
 			isa = PBXGroup;
 			children = (
 				BE676E1E21B696D2004B9558 /* Application */,
 			);
-			path = Ivoker;
+			path = Invoker;
 			sourceTree = "<group>";
 		};
 		BE676E1E21B696D2004B9558 /* Application */ = {
@@ -628,8 +634,9 @@
 		BE9FC86121BFE29B008B0383 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC88F21C00DD3008B0383 /* Resource */,
 				BE9FC84F21BFBDDD008B0383 /* Base Controller */,
-				BE676E1D21B696CB004B9558 /* Ivoker */,
+				BE676E1D21B696CB004B9558 /* Invoker */,
 				BE676E3321B6B42D004B9558 /* Network Client */,
 			);
 			path = Generic;
@@ -638,6 +645,7 @@
 		BE9FC86221BFE2AE008B0383 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC89421C01421008B0383 /* Resource */,
 				BE9FC85321BFBEDE008B0383 /* Base Controller */,
 			);
 			path = Generic;
@@ -759,6 +767,23 @@
 			children = (
 				BE9FC88B21C00806008B0383 /* BookingsRemoteResourceTests.swift */,
 				BE9FC88D21C0084F008B0383 /* ResourceAuthenticatorFakes.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BE9FC88F21C00DD3008B0383 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC89021C00DF5008B0383 /* RemoteResource.swift */,
+				BE9FC89221C013BD008B0383 /* UserResourceAuthenticator.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BE9FC89421C01421008B0383 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC89521C01438008B0383 /* UserResourceAuthenticatorTests.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1060,9 +1085,11 @@
 				BE9FC86721BFE426008B0383 /* RootWireframe.swift in Sources */,
 				BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */,
 				BE676E2E21B6ACE6004B9558 /* LoginRemoteResource.swift in Sources */,
+				BE9FC89121C00DF5008B0383 /* RemoteResource.swift in Sources */,
 				BE9FC88121C0050F008B0383 /* BookingsResource.swift in Sources */,
 				BE676E1C21B69621004B9558 /* LoginResource.swift in Sources */,
 				BE676E2021B696DE004B9558 /* Invoker.swift in Sources */,
+				BE9FC89321C013BD008B0383 /* UserResourceAuthenticator.swift in Sources */,
 				BE676E3021B6B03D004B9558 /* NetworkClient.swift in Sources */,
 				BE9FC87921BFF144008B0383 /* BookingsPresenter.swift in Sources */,
 				BE676E3221B6B3D7004B9558 /* EnvironmentConfig.swift in Sources */,
@@ -1096,6 +1123,7 @@
 				BE9FC86D21BFE4C0008B0383 /* RootWireframeFakes.swift in Sources */,
 				BE676E3921B6B517004B9558 /* NetworkClientFakes.swift in Sources */,
 				BE676E2721B699A5004B9558 /* InvokerFakes.swift in Sources */,
+				BE9FC89621C01438008B0383 /* UserResourceAuthenticatorTests.swift in Sources */,
 				BE676E2521B69982004B9558 /* TestError.swift in Sources */,
 				BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */,
 				BE9FC85821BFD29F008B0383 /* ScopeControllerFakes.swift in Sources */,

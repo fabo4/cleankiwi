@@ -48,4 +48,32 @@ class BookingsRemoteResourceTests: XCTestCase {
         XCTAssertEqual(networkClient.request?.method, .get)
     }
 
+    func test_givenNetworkClientReturnsBookings_whenGetBookings_thenBookingsAreReturned() throws {
+        let networkClient = NetworkClientStub()
+        self.networkClient = networkClient
+        setUp()
+        networkClient.response = NetworkClientResponse(body: .array([["bid": "bid1"], ["bid": "bid2"], ["asd": "asd"]]), statusCode: 200)
+
+        let bookings = try sut.bookings()
+
+        XCTAssertEqual(bookings.count, 2)
+        XCTAssertEqual(bookings.first?.bid, "bid1")
+        XCTAssertEqual(bookings.last?.bid, "bid2")
+    }
+
+    func test_givenNetworkClientReturnsDictionary_whenGetBookings_thenItThrowsIncorrectResponse() throws {
+        let networkClient = NetworkClientStub()
+        self.networkClient = networkClient
+        setUp()
+        networkClient.response = NetworkClientResponse(body: .dictionary(["bid": "bid1"]), statusCode: 200)
+
+        XCTAssertThrowsError(try sut.bookings()) { error in
+            if let loginError = error as? ResourceError {
+                XCTAssertEqual(loginError, .incorrectResponse)
+            } else {
+                XCTFail()
+            }
+        }
+    }
+
 }

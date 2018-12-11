@@ -91,7 +91,7 @@ class LoginRemoteResourceTests: XCTestCase {
         let request = LoginRequest(username: "", password: "")
 
         XCTAssertThrowsError(try sut.login(request: request)) { error in
-            if let loginError = error as? LoginResourceError {
+            if let loginError = error as? ResourceError {
                 XCTAssertEqual(loginError, .incorrectResponse)
             } else {
                 XCTFail()
@@ -121,7 +121,7 @@ class LoginRemoteResourceTests: XCTestCase {
         let request = LoginRequest(username: "", password: "")
 
         XCTAssertThrowsError(try sut.login(request: request)) { error in
-            if let loginError = error as? LoginResourceError {
+            if let loginError = error as? ResourceError {
                 XCTAssertEqual(loginError, .incorrectResponse)
             } else {
                 XCTFail()
@@ -138,7 +138,7 @@ class LoginRemoteResourceTests: XCTestCase {
         let request = LoginRequest(username: "", password: "")
 
         XCTAssertThrowsError(try sut.login(request: request)) { error in
-            if let loginError = error as? LoginResourceError {
+            if let loginError = error as? ResourceError {
                 XCTAssertEqual(loginError, .incorrectResponse)
             } else {
                 XCTFail()

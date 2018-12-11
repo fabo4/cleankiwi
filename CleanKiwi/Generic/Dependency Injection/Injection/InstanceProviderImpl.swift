@@ -99,7 +99,9 @@ extension InstanceProviderImpl: ScopeService {
 
         sessionContainer.autoregister(BookingsPresenter.self, initializer: BookingsPresenterImpl.init)
 
+        sessionContainer.autoregister(ResourceAuthenticator.self, initializer: UserResourceAuthenticator.init)
 
+        sessionContainer.autoregister(BookingsResource.self, initializer: BookingsRemoteResource.init)
 
         self.sessionContainer = sessionContainer
     }
