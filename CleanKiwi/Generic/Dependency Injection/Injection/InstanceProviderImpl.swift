@@ -11,13 +11,9 @@ import CleanKiwiCore
 import Swinject
 import SwinjectAutoregistration
 
-class InstanceProvider {
+class InstanceProviderImpl: InstanceProvider {
 
-    enum Error: Swift.Error {
-        case unableToResolve(type: String)
-    }
-
-    static let shared = InstanceProvider()
+    static let shared = InstanceProviderImpl()
 
     let applicationContainer: Container
     var sessionContainer: Container?
@@ -28,6 +24,8 @@ class InstanceProvider {
         registerNetworking(container: applicationContainer)
         registerConfiguration(container: applicationContainer)
         registerScopeManagement(container: applicationContainer)
+        registerNavigation(container: applicationContainer)
+        _ = applicationContainer.resolve(RootCoordinator.self)
     }
 
     func instance<T>(of type: T.Type) throws -> T {
@@ -35,7 +33,7 @@ class InstanceProvider {
         let container = sessionContainer ?? applicationContainer
 
         guard let instance = container.resolve(type) else {
-            throw InstanceProvider.Error.unableToResolve(type: "\(type)")
+            throw InstanceProviderError.unableToResolve(type: "\(type)")
         }
 
         return instance
@@ -50,7 +48,7 @@ class InstanceProvider {
             }
         }
 
-        container.autoregister(LoginController.self, initializer: LoginControllerImpl.init)
+        container.autoregister(LoginController.self, initializer: LoginControllerImpl.init).inObjectScope(.container)
 
         container.autoregister(LoginResource.self, initializer: LoginRemoteResource.init)
 
@@ -58,10 +56,24 @@ class InstanceProvider {
     }
 
     private func registerScopeManagement(container: Container) {
-        container.autoregister(ScopeController.self, initializer: ScopeControllerImpl.init)
+        container.autoregister(ScopeController.self, initializer: ScopeControllerImpl.init).inObjectScope(.container)
 
         container.register(ScopeService.self) { _ in
-            return InstanceProvider.shared
+            return self
+        }
+    }
+
+    func registerNavigation(container: Container) {
+        container.autoregister(RootCoordinator.self, initializer: RootCoordinatorImpl.init).inObjectScope(.container)
+
+        container.autoregister(RootWireframe.self, initializer: RootWireframeImpl.init)
+
+        container.register(InstanceProvider.self) { _ in
+            return self
+        }
+
+        container.register(UIWindow.self) { r in
+            return UIApplication.shared.keyWindow!
         }
     }
 
@@ -74,14 +86,18 @@ class InstanceProvider {
     }
 }
 
-extension InstanceProvider: ScopeService {
+extension InstanceProviderImpl: ScopeService {
 
     func startSessionScope(_ sessionScope: SessionScope) {
-        sessionContainer = Container(parent: applicationContainer)
+        let sessionContainer = Container(parent: applicationContainer)
 
-        sessionContainer?.register(Session.self) { _ in
+        sessionContainer.register(Session.self) { _ in
             return sessionScope.session
         }
+
+        sessionContainer.autoregister(BookingsViewController.self, initializer: BookingsViewController.make)
+
+        self.sessionContainer = sessionContainer
     }
 
     func discardSessionScope() {
