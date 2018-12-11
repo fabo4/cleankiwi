@@ -38,6 +38,14 @@
 		BE75465421AD6A8E005FF2D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465321AD6A8E005FF2D7 /* LoginView.swift */; };
 		BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */; };
 		BE75465A21AD709E005FF2D7 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */; };
+		BE9FC84121BFBA0D008B0383 /* ScopeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC84021BFBA0D008B0383 /* ScopeController.swift */; };
+		BE9FC84521BFBA7A008B0383 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC84421BFBA7A008B0383 /* Session.swift */; };
+		BE9FC84721BFBB8F008B0383 /* ScopeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC84621BFBB8F008B0383 /* ScopeService.swift */; };
+		BE9FC84C21BFBC02008B0383 /* ScopeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC84B21BFBC02008B0383 /* ScopeControllerTests.swift */; };
+		BE9FC84E21BFBC70008B0383 /* ScopeServiceFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC84D21BFBC70008B0383 /* ScopeServiceFakes.swift */; };
+		BE9FC85121BFBDF5008B0383 /* SubscribtionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC85021BFBDF5008B0383 /* SubscribtionController.swift */; };
+		BE9FC85621BFBEEF008B0383 /* SubscriptionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC85521BFBEEF008B0383 /* SubscriptionControllerTests.swift */; };
+		BE9FC85821BFD29F008B0383 /* ScopeControllerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC85721BFD29F008B0383 /* ScopeControllerFakes.swift */; };
 		BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9221AD80BF00FFCF0B /* LoginController.swift */; };
 		BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */; };
 		BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */; };
@@ -128,6 +136,14 @@
 		BE75465521AD6C32005FF2D7 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		BE75465921AD709E005FF2D7 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
 		BE75465C21AD74F3005FF2D7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		BE9FC84021BFBA0D008B0383 /* ScopeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeController.swift; sourceTree = "<group>"; };
+		BE9FC84421BFBA7A008B0383 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		BE9FC84621BFBB8F008B0383 /* ScopeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeService.swift; sourceTree = "<group>"; };
+		BE9FC84B21BFBC02008B0383 /* ScopeControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeControllerTests.swift; sourceTree = "<group>"; };
+		BE9FC84D21BFBC70008B0383 /* ScopeServiceFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeServiceFakes.swift; sourceTree = "<group>"; };
+		BE9FC85021BFBDF5008B0383 /* SubscribtionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionController.swift; sourceTree = "<group>"; };
+		BE9FC85521BFBEEF008B0383 /* SubscriptionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionControllerTests.swift; sourceTree = "<group>"; };
+		BE9FC85721BFD29F008B0383 /* ScopeControllerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeControllerFakes.swift; sourceTree = "<group>"; };
 		BEFADA9221AD80BF00FFCF0B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerFakes.swift; sourceTree = "<group>"; };
 		BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewFakes.swift; sourceTree = "<group>"; };
@@ -236,6 +252,9 @@
 		BE2C1F4A21AC34540000161A /* CleanKiwiCore */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC84F21BFBDDD008B0383 /* Base Controller */,
+				BE9FC84221BFBA69008B0383 /* Session */,
+				BE9FC83E21BFB9F1008B0383 /* Scope Management */,
 				BE676E3421B6B435004B9558 /* Configuration */,
 				BE676E3321B6B42D004B9558 /* Network Client */,
 				BE676E1D21B696CB004B9558 /* Ivoker */,
@@ -249,6 +268,8 @@
 		BE2C1F5721AC34540000161A /* CleanKiwiCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC85321BFBEDE008B0383 /* Base Controller */,
+				BE9FC84821BFBBE4008B0383 /* Scope Management */,
 				BE676E2321B69979004B9558 /* Common Fakes */,
 				BE75465721AD7085005FF2D7 /* Login */,
 				BE2C1F5821AC34540000161A /* CleanKiwiCoreTests.swift */,
@@ -452,10 +473,93 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		BE9FC83E21BFB9F1008B0383 /* Scope Management */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC83F21BFB9FD008B0383 /* Application */,
+			);
+			path = "Scope Management";
+			sourceTree = "<group>";
+		};
+		BE9FC83F21BFB9FD008B0383 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC84021BFBA0D008B0383 /* ScopeController.swift */,
+				BE9FC84621BFBB8F008B0383 /* ScopeService.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BE9FC84221BFBA69008B0383 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC84321BFBA70008B0383 /* Domain */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		BE9FC84321BFBA70008B0383 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC84421BFBA7A008B0383 /* Session.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BE9FC84821BFBBE4008B0383 /* Scope Management */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC84921BFBBEA008B0383 /* Application */,
+			);
+			path = "Scope Management";
+			sourceTree = "<group>";
+		};
+		BE9FC84921BFBBEA008B0383 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC84B21BFBC02008B0383 /* ScopeControllerTests.swift */,
+				BE9FC84D21BFBC70008B0383 /* ScopeServiceFakes.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BE9FC84F21BFBDDD008B0383 /* Base Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC85221BFBDFB008B0383 /* Application */,
+			);
+			path = "Base Controller";
+			sourceTree = "<group>";
+		};
+		BE9FC85221BFBDFB008B0383 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC85021BFBDF5008B0383 /* SubscribtionController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BE9FC85321BFBEDE008B0383 /* Base Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC85421BFBEE3008B0383 /* Application */,
+			);
+			path = "Base Controller";
+			sourceTree = "<group>";
+		};
+		BE9FC85421BFBEE3008B0383 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC85521BFBEEF008B0383 /* SubscriptionControllerTests.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		BEFADA9021AD808C00FFCF0B /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				BE676E1921B69583004B9558 /* LoginControllerTests.swift */,
+				BE9FC85721BFD29F008B0383 /* ScopeControllerFakes.swift */,
 				BE676E2121B698F7004B9558 /* LoginResourceFakes.swift */,
 				BE676E2621B699A5004B9558 /* InvokerFakes.swift */,
 			);
@@ -737,6 +841,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9FC84721BFBB8F008B0383 /* ScopeService.swift in Sources */,
+				BE9FC84521BFBA7A008B0383 /* Session.swift in Sources */,
 				BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */,
 				BE676E2E21B6ACE6004B9558 /* LoginRemoteResource.swift in Sources */,
 				BE676E1C21B69621004B9558 /* LoginResource.swift in Sources */,
@@ -744,6 +850,8 @@
 				BE676E3021B6B03D004B9558 /* NetworkClient.swift in Sources */,
 				BE676E3221B6B3D7004B9558 /* EnvironmentConfig.swift in Sources */,
 				BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */,
+				BE9FC84121BFBA0D008B0383 /* ScopeController.swift in Sources */,
+				BE9FC85121BFBDF5008B0383 /* SubscribtionController.swift in Sources */,
 				BE75465421AD6A8E005FF2D7 /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,15 +862,19 @@
 			files = (
 				BE75465A21AD709E005FF2D7 /* LoginPresenterTests.swift in Sources */,
 				BE676E1A21B69583004B9558 /* LoginControllerTests.swift in Sources */,
+				BE9FC84C21BFBC02008B0383 /* ScopeControllerTests.swift in Sources */,
 				BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */,
 				BE2C1F5921AC34540000161A /* CleanKiwiCoreTests.swift in Sources */,
 				BE676E2221B698F7004B9558 /* LoginResourceFakes.swift in Sources */,
+				BE9FC85621BFBEEF008B0383 /* SubscriptionControllerTests.swift in Sources */,
 				BE676E3B21B6B57E004B9558 /* EnvironmentConfigFakes.swift in Sources */,
+				BE9FC84E21BFBC70008B0383 /* ScopeServiceFakes.swift in Sources */,
 				BE676E3721B6B4EB004B9558 /* LoginRemoteResourceTests.swift in Sources */,
 				BE676E3921B6B517004B9558 /* NetworkClientFakes.swift in Sources */,
 				BE676E2721B699A5004B9558 /* InvokerFakes.swift in Sources */,
 				BE676E2521B69982004B9558 /* TestError.swift in Sources */,
 				BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */,
+				BE9FC85821BFD29F008B0383 /* ScopeControllerFakes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

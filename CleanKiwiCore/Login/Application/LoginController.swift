@@ -13,39 +13,20 @@ public enum LoginControllerError: Error {
     case unknown
 }
 
-public protocol LoginController {
-
-    func isLoading() -> Bool
-    func subscribeUpdate(_ update: @escaping () -> Void)
-    func subscribeFailure(_ failure: @escaping (Error) -> Void)
+public protocol LoginController: SubscriptionController {
     func login(username: String, password: String)
 }
 
-public class LoginControllerImpl: LoginController {
+public class LoginControllerImpl: SubscriptionControllerImpl, LoginController {
 
     let invoker: LoginInvoker
     let loginResource: LoginResource
+    let scopeController: ScopeController
 
-    var update: (() -> Void)?
-    var failure: ((Error) -> Void)?
-
-    var loading = false
-
-    public init(invoker: LoginInvoker, loginResource: LoginResource) {
+    public init(invoker: LoginInvoker, loginResource: LoginResource, scopeController: ScopeController) {
         self.invoker = invoker
         self.loginResource = loginResource
-    }
-    
-    public func isLoading() -> Bool {
-        return loading
-    }
-
-    public func subscribeUpdate(_ update: @escaping () -> Void) {
-        self.update = update
-    }
-
-    public func subscribeFailure(_ failure: @escaping (Error) -> Void) {
-        self.failure = failure
+        self.scopeController = scopeController
     }
 
     public func login(username: String, password: String) {
@@ -58,7 +39,8 @@ public class LoginControllerImpl: LoginController {
             switch result {
             case .failure(let error):
                 self?.failure?(error)
-            case .success:
+            case .success(let response):
+                self?.scopeController.startSessionScope(SessionScope(session: Session(token: response.token)))
                 self?.update?()
             }
         })

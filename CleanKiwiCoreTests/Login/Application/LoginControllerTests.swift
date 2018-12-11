@@ -13,15 +13,12 @@ class LoginControllerTests: XCTestCase {
 
     var invoker: LoginInvoker = LoginInvokerDummy()
     var loginResource: LoginResource = LoginResourceDummy()
+    var scopeController: ScopeController = ScopeControllerDummy()
 
     var sut: LoginController!
 
     override func setUp() {
-        sut = LoginControllerImpl(invoker: invoker, loginResource: loginResource)
-    }
-
-    func test_whenCreate_thenIsNotLoading() {
-        XCTAssertFalse(sut.isLoading())
+        sut = LoginControllerImpl(invoker: invoker, loginResource: loginResource, scopeController: scopeController)
     }
 
     func test_whenLogin_thenActionIsInvoked() {
@@ -47,17 +44,20 @@ class LoginControllerTests: XCTestCase {
         XCTAssertTrue(updateNotified)
     }
 
-    func test_givenLogin_whenInvokerSuccessfulyCompletes_thenControllerIsNotLoadingAndUpdates() {
+    func test_givenLogin_whenInvokerSuccessfulyCompletes_thenScopeStartsSutIsNotLoadingAndUpdates() {
         let invoker = LoginInvokerSpy()
         self.invoker = invoker
+        let scopeController = ScopeControllerSpy()
+        self.scopeController = scopeController
         setUp()
         sut.login(username: "username", password: "password")
         var updateNotified = false
         sut.subscribeUpdate { updateNotified = true }
 
-        invoker.completion?(Result.success(response: LoginResponse(token: "", userId: "")))
+        invoker.completion?(Result.success(response: LoginResponse(token: "token", userId: "")))
 
         XCTAssertFalse(sut.isLoading())
+        XCTAssertEqual(scopeController.startedSessionScope, SessionScope(session: Session(token: "token")))
         XCTAssertTrue(updateNotified)
     }
 

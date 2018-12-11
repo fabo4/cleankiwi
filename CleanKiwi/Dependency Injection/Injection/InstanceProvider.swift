@@ -19,15 +19,21 @@ class InstanceProvider {
 
     static let shared = InstanceProvider()
 
-    let container = Container()
+    let applicationContainer: Container
+    var sessionContainer: Container?
 
     private init() {
-        registerLogin()
-        registerNetworking()
-        registerConfiguration()
+        applicationContainer = Container()
+        registerLogin(container: applicationContainer)
+        registerNetworking(container: applicationContainer)
+        registerConfiguration(container: applicationContainer)
+        registerScopeManagement(container: applicationContainer)
     }
 
     func instance<T>(of type: T.Type) throws -> T {
+
+        let container = sessionContainer ?? applicationContainer
+
         guard let instance = container.resolve(type) else {
             throw InstanceProvider.Error.unableToResolve(type: "\(type)")
         }
@@ -35,7 +41,7 @@ class InstanceProvider {
         return instance
     }
 
-    private func registerLogin() {
+    private func registerLogin(container: Container) {
         container.autoregister(LoginViewController.self, initializer: LoginViewController.make).implements(LoginView.self)
 
         container.autoregister(LoginPresenter.self, initializer: LoginPresenterImpl.init).initCompleted { resolver, presenter in
@@ -49,14 +55,40 @@ class InstanceProvider {
         container.autoregister(LoginResource.self, initializer: LoginRemoteResource.init)
 
         container.autoregister(LoginInvoker.self, initializer: BackgroundLoginInvoker.init)
-
     }
 
-    func registerConfiguration() {
+    private func registerScopeManagement(container: Container) {
+        container.autoregister(ScopeController.self, initializer: ScopeControllerImpl.init)
+
+        container.register(ScopeService.self) { _ in
+            return InstanceProvider.shared
+        }
+    }
+
+    func registerConfiguration(container: Container) {
         container.autoregister(EnvironmentConfig.self, initializer: ProductionEnvironmentConfig.init)
     }
 
-    func registerNetworking() {
+    func registerNetworking(container: Container) {
         container.autoregister(NetworkClient.self, initializer: SynchronousNetworkClient.init)
+    }
+}
+
+extension InstanceProvider: ScopeService {
+
+    func startSessionScope(_ sessionScope: SessionScope) {
+        sessionContainer = Container(parent: applicationContainer)
+
+        sessionContainer?.register(Session.self) { _ in
+            return sessionScope.session
+        }
+    }
+
+    func discardSessionScope() {
+        sessionContainer = nil
+    }
+
+    func sessionStarted() -> Bool {
+        return sessionContainer != nil
     }
 }
