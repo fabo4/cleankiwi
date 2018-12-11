@@ -56,6 +56,12 @@
 		BE9FC87321BFE99B008B0383 /* InstanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC87221BFE99B008B0383 /* InstanceProvider.swift */; };
 		BE9FC87921BFF144008B0383 /* BookingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC87821BFF144008B0383 /* BookingsPresenter.swift */; };
 		BE9FC87D21BFF16D008B0383 /* BookingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC87C21BFF16D008B0383 /* BookingsPresenterTests.swift */; };
+		BE9FC88121C0050F008B0383 /* BookingsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88021C0050F008B0383 /* BookingsResource.swift */; };
+		BE9FC88421C0056F008B0383 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88321C0056F008B0383 /* Booking.swift */; };
+		BE9FC88621C00667008B0383 /* BookingsRemoteResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88521C00667008B0383 /* BookingsRemoteResource.swift */; };
+		BE9FC88821C007C6008B0383 /* ResourceAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88721C007C6008B0383 /* ResourceAuthenticator.swift */; };
+		BE9FC88C21C00806008B0383 /* BookingsRemoteResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88B21C00806008B0383 /* BookingsRemoteResourceTests.swift */; };
+		BE9FC88E21C0084F008B0383 /* ResourceAuthenticatorFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9FC88D21C0084F008B0383 /* ResourceAuthenticatorFakes.swift */; };
 		BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9221AD80BF00FFCF0B /* LoginController.swift */; };
 		BEFADA9521AD84A500FFCF0B /* LoginControllerFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */; };
 		BEFADA9721AD84BB00FFCF0B /* LoginViewFakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */; };
@@ -164,6 +170,12 @@
 		BE9FC87221BFE99B008B0383 /* InstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceProvider.swift; sourceTree = "<group>"; };
 		BE9FC87821BFF144008B0383 /* BookingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsPresenter.swift; sourceTree = "<group>"; };
 		BE9FC87C21BFF16D008B0383 /* BookingsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsPresenterTests.swift; sourceTree = "<group>"; };
+		BE9FC88021C0050F008B0383 /* BookingsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsResource.swift; sourceTree = "<group>"; };
+		BE9FC88321C0056F008B0383 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
+		BE9FC88521C00667008B0383 /* BookingsRemoteResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsRemoteResource.swift; sourceTree = "<group>"; };
+		BE9FC88721C007C6008B0383 /* ResourceAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAuthenticator.swift; sourceTree = "<group>"; };
+		BE9FC88B21C00806008B0383 /* BookingsRemoteResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsRemoteResourceTests.swift; sourceTree = "<group>"; };
+		BE9FC88D21C0084F008B0383 /* ResourceAuthenticatorFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAuthenticatorFakes.swift; sourceTree = "<group>"; };
 		BEFADA9221AD80BF00FFCF0B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		BEFADA9421AD84A500FFCF0B /* LoginControllerFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerFakes.swift; sourceTree = "<group>"; };
 		BEFADA9621AD84BB00FFCF0B /* LoginViewFakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewFakes.swift; sourceTree = "<group>"; };
@@ -247,11 +259,11 @@
 		BE2C1F2321AC30DF0000161A /* CleanKiwi */ = {
 			isa = PBXGroup;
 			children = (
-				BE9FC86E21BFE7A4008B0383 /* Navigation */,
 				BE9FC86021BFE288008B0383 /* Generic */,
 				BE9FC85921BFDFC9008B0383 /* Bookings */,
 				BE676E3C21B6C94E004B9558 /* Configuration */,
 				BE2C1F6721AC34BD0000161A /* Login */,
+				BE9FC86E21BFE7A4008B0383 /* Navigation */,
 				BE2C1F2421AC30DF0000161A /* AppDelegate.swift */,
 				BE2C1F2B21AC30E00000161A /* Assets.xcassets */,
 				BE2C1F3021AC30E00000161A /* Info.plist */,
@@ -428,8 +440,8 @@
 			children = (
 				BE676E2C21B6ACD7004B9558 /* Resource */,
 				BE75465221AD6A86005FF2D7 /* Presentation */,
-				BE75464D21AD6252005FF2D7 /* Domain */,
 				BE75464C21AD624C005FF2D7 /* Application */,
+				BE75464D21AD6252005FF2D7 /* Domain */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -684,7 +696,10 @@
 		BE9FC87521BFF129008B0383 /* Bookings */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC87E21C004B4008B0383 /* Resource */,
 				BE9FC87621BFF12F008B0383 /* Presentation */,
+				BE9FC87F21C004F9008B0383 /* Application */,
+				BE9FC88221C0055F008B0383 /* Domain */,
 			);
 			path = Bookings;
 			sourceTree = "<group>";
@@ -700,6 +715,7 @@
 		BE9FC87A21BFF15C008B0383 /* Bookings */ = {
 			isa = PBXGroup;
 			children = (
+				BE9FC88921C007E6008B0383 /* Resource */,
 				BE9FC87B21BFF160008B0383 /* Presentation */,
 			);
 			path = Bookings;
@@ -711,6 +727,40 @@
 				BE9FC87C21BFF16D008B0383 /* BookingsPresenterTests.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BE9FC87E21C004B4008B0383 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC88521C00667008B0383 /* BookingsRemoteResource.swift */,
+				BE9FC88721C007C6008B0383 /* ResourceAuthenticator.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BE9FC87F21C004F9008B0383 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC88021C0050F008B0383 /* BookingsResource.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BE9FC88221C0055F008B0383 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC88321C0056F008B0383 /* Booking.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BE9FC88921C007E6008B0383 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BE9FC88B21C00806008B0383 /* BookingsRemoteResourceTests.swift */,
+				BE9FC88D21C0084F008B0383 /* ResourceAuthenticatorFakes.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		BEFADA9021AD808C00FFCF0B /* Application */ = {
@@ -1004,16 +1054,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE9FC84721BFBB8F008B0383 /* ScopeService.swift in Sources */,
+				BE9FC88421C0056F008B0383 /* Booking.swift in Sources */,
 				BE9FC84521BFBA7A008B0383 /* Session.swift in Sources */,
+				BE9FC88821C007C6008B0383 /* ResourceAuthenticator.swift in Sources */,
 				BE9FC86721BFE426008B0383 /* RootWireframe.swift in Sources */,
 				BE75465621AD6C32005FF2D7 /* LoginPresenter.swift in Sources */,
 				BE676E2E21B6ACE6004B9558 /* LoginRemoteResource.swift in Sources */,
+				BE9FC88121C0050F008B0383 /* BookingsResource.swift in Sources */,
 				BE676E1C21B69621004B9558 /* LoginResource.swift in Sources */,
 				BE676E2021B696DE004B9558 /* Invoker.swift in Sources */,
 				BE676E3021B6B03D004B9558 /* NetworkClient.swift in Sources */,
 				BE9FC87921BFF144008B0383 /* BookingsPresenter.swift in Sources */,
 				BE676E3221B6B3D7004B9558 /* EnvironmentConfig.swift in Sources */,
 				BEFADA9321AD80BF00FFCF0B /* LoginController.swift in Sources */,
+				BE9FC88621C00667008B0383 /* BookingsRemoteResource.swift in Sources */,
 				BE9FC84121BFBA0D008B0383 /* ScopeController.swift in Sources */,
 				BE9FC86521BFE3A0008B0383 /* RootCoordinator.swift in Sources */,
 				BE9FC85121BFBDF5008B0383 /* SubscribtionController.swift in Sources */,
@@ -1025,6 +1079,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9FC88E21C0084F008B0383 /* ResourceAuthenticatorFakes.swift in Sources */,
 				BE9FC86B21BFE48E008B0383 /* RootCoordinatorTests.swift in Sources */,
 				BE75465A21AD709E005FF2D7 /* LoginPresenterTests.swift in Sources */,
 				BE676E1A21B69583004B9558 /* LoginControllerTests.swift in Sources */,
@@ -1035,6 +1090,7 @@
 				BE9FC85621BFBEEF008B0383 /* SubscriptionControllerTests.swift in Sources */,
 				BE676E3B21B6B57E004B9558 /* EnvironmentConfigFakes.swift in Sources */,
 				BE9FC84E21BFBC70008B0383 /* ScopeServiceFakes.swift in Sources */,
+				BE9FC88C21C00806008B0383 /* BookingsRemoteResourceTests.swift in Sources */,
 				BE9FC87D21BFF16D008B0383 /* BookingsPresenterTests.swift in Sources */,
 				BE676E3721B6B4EB004B9558 /* LoginRemoteResourceTests.swift in Sources */,
 				BE9FC86D21BFE4C0008B0383 /* RootWireframeFakes.swift in Sources */,

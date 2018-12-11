@@ -7,6 +7,7 @@
 //
 
 public protocol EnvironmentConfig {
-    func baseUrlString() -> String
+    func baseAuthenticationUrlString() -> String
+    func baseBookingsUrlString() -> String
     func applicationId() -> String
 }

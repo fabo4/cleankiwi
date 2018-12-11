@@ -15,7 +15,11 @@ class EnvironmentConfigStub: EnvironmentConfig {
     var baseUrl = ""
     var appId = ""
 
-    func baseUrlString() -> String {
+    func baseAuthenticationUrlString() -> String {
+        return baseUrl
+    }
+
+    func baseBookingsUrlString() -> String {
         return baseUrl
     }
 

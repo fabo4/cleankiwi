@@ -27,7 +27,7 @@ public class LoginRemoteResource: LoginResource {
     }
 
     private func url() -> String {
-        return environmentConfig.baseUrlString() + "/user.login?app_id=" + environmentConfig.applicationId()
+        return environmentConfig.baseAuthenticationUrlString() + "/user.login?app_id=" + environmentConfig.applicationId()
     }
 
     private func requestParameters(from request: LoginRequest) -> [String: String] {

@@ -9,8 +9,12 @@
 import CleanKiwiCore
 
 class ProductionEnvironmentConfig: EnvironmentConfig {
-    func baseUrlString() -> String {
+    func baseAuthenticationUrlString() -> String {
         return "https://auth.skypicker.com/v1"
+    }
+
+    func baseBookingsUrlString() -> String {
+        return "https://booking-api.skypicker.com/api/v0.1"
     }
 
     func applicationId() -> String {
